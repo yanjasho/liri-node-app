@@ -1,18 +1,28 @@
-require("dotenv").config()
+//require("dotenv").config()
 var axios = require("axios")
 var fs = require("fs")
+var moment = require('moment')
 var keys = require("./keys.js")
-var spotify = new Spotify(keys.spotify)
+//var spotify = new Spotify(keys.spotify)
 var term = process.argv.slice(3).join(" ")
 var divider = "\n------------------------------------------------------------\n\n"
 
 function concertThis () {
     var URL = "https://rest.bandsintown.com/artists/" + term + "/events?app_id=codingbootcamp"
     axios.get(URL).then(function(response) {
+        var jsonData = response.data
+        for (var i =0; i<jsonData.length; i++){
+            var concertData = [
+                "Venue: "+ jsonData[i].venue.name,
+                "Location: "+ jsonData[i].venue.city+", "+jsonData[i].venue.region+ " ,"+jsonData[i].venue.country,
+                "Date: "+ moment(jsonData[i].datetime).format("MM/DD/YYYY")
+            ].join("\n\n")
 
-    fs.appendFile("log.txt",  + divider, function(err) {
-        if (err) throw err
-        console.log()
+            fs.appendFile("log.txt", concertData + divider, function(err) {
+            if (err) throw err
+            console.log(concertData + divider)
+            })
+        }
     })
 }
 
@@ -54,5 +64,5 @@ switch(process.argv[2]) {
     doWhatItSays ()
       break;
     default:
-    console.log("What do you wanna do?")
+    console.log("What are you looking for?")
   }

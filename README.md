@@ -14,9 +14,13 @@ If you wish to clone and run it, you will have to create ".env" file with your o
 Commands are: 
 
    * `concert-this` + name of the artist
+   ![concert-this](screenshots/concert-this.png)
 
    * `spotify-this-song` + name of the song
+   ![spotify-this](screenshots/spotify-this.png)
 
    * `movie-this` + name of the movie
+   ![movie-this](screenshots/movie-this.png)
 
    * `do-what-it-says` takes command from random.txt
+   ![do-what-it-says](screenshots/do-what-it-says.png)

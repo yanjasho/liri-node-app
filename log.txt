@@ -5,6 +5,13 @@ Location: Chattanooga, TN ,United States
 Date: 06/20/2019
 ------------------------------------------------------------
 
+Venue: Lincoln Theatre
+
+Location: Washington, DC ,United States
+
+Date: 10/31/2019
+------------------------------------------------------------
+
 Venue: Marathon Music Works
 
 Location: Nashville, TN ,United States
@@ -12,10 +19,38 @@ Location: Nashville, TN ,United States
 Date: 06/23/2019
 ------------------------------------------------------------
 
-Venue: Lincoln Theatre
+Artist: Doretta Home
 
-Location: Washington, DC ,United States
+Song: These Boots Are Made for Walking
 
-Date: 10/31/2019
+Preview: https://p.scdn.co/mp3-preview/8533acdb1941966ad68af68ea9f70fa70f33749f?cid=7ecc909a6be446d0af22fc57aa0ef27b
+
+Album: Let`s Get This Party
+------------------------------------------------------------
+
+Title: Hero
+
+Year: 2002
+
+IMDB Rating: 7.9
+
+Rotten Tomatoes Rating: N/A
+
+Country: China, Hong Kong
+
+Language: Mandarin
+
+Plot: A defense officer, Nameless, was summoned by the King of Qin regarding his success of terminating three warriors.
+
+Actors: Jet Li, Tony Chiu-Wai Leung, Maggie Cheung, Ziyi Zhang
+------------------------------------------------------------
+
+Artist: Backstreet Boys
+
+Song: I Want It That Way
+
+Preview: https://p.scdn.co/mp3-preview/e72a05dc3f69c891e3390c3ceaa77fad02f6b5f6?cid=7ecc909a6be446d0af22fc57aa0ef27b
+
+Album: The Hits--Chapter One
 ------------------------------------------------------------
 

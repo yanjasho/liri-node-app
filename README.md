@@ -24,3 +24,5 @@ Commands are:
 
    * `do-what-it-says` takes command from random.txt
    ![do-what-it-says](screenshots/do-what-it-says.png)
+
+See it alive: https://drive.google.com/file/d/1q01mAWQ6Cp_uJJL4i8sGoS7I9LbDUJw-/view?usp=sharing

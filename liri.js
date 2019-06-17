@@ -49,10 +49,27 @@ function spotifyThisSong () {
 }
 
 function movieThis () {
-
-    fs.appendFile("log.txt",  + divider, function(err) {
+    if (term ==0){
+        term="Mr. Nobody"
+    }
+    var URL = "http://www.omdbapi.com/?apikey=trilogy&tomatoes=true&t=" + term
+    axios.get(URL).then(function(response) {
+        var jsonData = response.data
+        var movieData = [
+            "Title: "+ jsonData.Title,
+            "Year: "+jsonData.Year,
+            "IMDB Rating: "+jsonData.imdbRating,
+            "Rotten Tomatoes Rating: "+jsonData.tomatoRating,
+            //There seemed to be some changes in Rotten Tomato API availibility, so it'll return as N/A for probably everything
+            "Country: "+jsonData.Country,
+            "Language: "+jsonData.Language,
+            "Plot: "+jsonData.Plot,
+            "Actors: "+jsonData.Actors
+        ].join("\n\n")
+        fs.appendFile("log.txt", movieData + divider, function(err) {
         if (err) throw err
-        console.log()
+        console.log(movieData)
+        })
     })
 }
 

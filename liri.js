@@ -1,9 +1,10 @@
-//require("dotenv").config()
+require("dotenv").config()
 var axios = require("axios")
 var fs = require("fs")
 var moment = require('moment')
+var Spotify = require('node-spotify-api')
 var keys = require("./keys.js")
-//var spotify = new Spotify(keys.spotify)
+var spotify = new Spotify(keys.spotify)
 var term = process.argv.slice(3).join(" ")
 var divider = "\n------------------------------------------------------------\n\n"
 
@@ -27,11 +28,24 @@ function concertThis () {
 }
 
 function spotifyThisSong () {
+    if (term ==0){
+        term="The Sign Ace of Base"
+    }
+    spotify.search({ type: 'track', query: term, limit: 1 })
+    .then(function(response) {
+        var jsonData = response.tracks.items[0]
+        var songData = [
+            "Artist: "+jsonData.artists[0].name,
+            "Song: "+jsonData.name,
+            "Preview: "+jsonData.preview_url,
+            "Album: "+jsonData.album.name
+        ].join("\n\n")
 
-    fs.appendFile("log.txt",  + divider, function(err) {
+        fs.appendFile("log.txt", songData + divider, function(err) {
         if (err) throw err
-        console.log()
+        console.log(songData)
     })
+  })   
 }
 
 function movieThis () {

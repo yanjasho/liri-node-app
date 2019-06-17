@@ -18,10 +18,9 @@ function concertThis () {
                 "Location: "+ jsonData[i].venue.city+", "+jsonData[i].venue.region+ " ,"+jsonData[i].venue.country,
                 "Date: "+ moment(jsonData[i].datetime).format("MM/DD/YYYY")
             ].join("\n\n")
-
-            fs.appendFile("log.txt", concertData + divider, function(err) {
-            if (err) throw err
             console.log(concertData + divider)
+            fs.appendFile("log.txt", concertData + divider, function(err) {
+                if (err) throw err         
             })
         }
     })
@@ -40,12 +39,11 @@ function spotifyThisSong () {
             "Preview: "+jsonData.preview_url,
             "Album: "+jsonData.album.name
         ].join("\n\n")
-
-        fs.appendFile("log.txt", songData + divider, function(err) {
-        if (err) throw err
         console.log(songData)
-    })
-  })   
+        fs.appendFile("log.txt", songData + divider, function(err) {
+        if (err) throw err   
+        })
+    })   
 }
 
 function movieThis () {
@@ -66,19 +64,33 @@ function movieThis () {
             "Plot: "+jsonData.Plot,
             "Actors: "+jsonData.Actors
         ].join("\n\n")
+        console.log(movieData)
         fs.appendFile("log.txt", movieData + divider, function(err) {
         if (err) throw err
-        console.log(movieData)
         })
     })
 }
 
 function doWhatItSays () {
-
-    fs.appendFile("log.txt",  + divider, function(err) {
+    fs.readFile('random.txt', 'utf8', function(err, data) {
         if (err) throw err
-        console.log()
+        var altSearch= data.split(",")
+        term = altSearch[1]
+        switch(altSearch[0]) {
+            case "concert-this":
+            concertThis ()
+              break;
+            case "spotify-this-song":
+            spotifyThisSong ()
+              break;
+            case "movie-this":
+            movieThis ()
+              break;
+            default:
+            console.log("What are you looking for?")
+          }
     })
+    
 }
 
 switch(process.argv[2]) {

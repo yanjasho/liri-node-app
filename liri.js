@@ -9,6 +9,10 @@ var term = process.argv.slice(3).join(" ")
 var divider = "\n------------------------------------------------------------\n\n"
 
 function concertThis () {
+    if (term ==0){
+      console.log("What concert are you looking for?")
+      return
+    }
     var URL = "https://rest.bandsintown.com/artists/" + term + "/events?app_id=codingbootcamp"
     axios.get(URL).then(function(response) {
         var jsonData = response.data
